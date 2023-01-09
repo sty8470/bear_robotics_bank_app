@@ -6,15 +6,12 @@ from Balance import Balance
 from Deposit import Deposit 
 from Withdraw import Withdraw
 
+import sys
+
 class Account(QDialog):
 
     def __init__(self):
         super().__init__()
-        current_balance = 100
-        self.balance_obj = Balance()
-        self.deposit_obj = Deposit()
-        self.withdraw_obj = Withdraw()
-      
         self.initUI()
 
     def initUI(self):
@@ -43,14 +40,16 @@ class Account(QDialog):
         self.setFixedSize(300, 100)
         
     def balanceTextClicked(self):
+        self.balance_obj = Balance()
         self.balance_obj.showDialog()
     
     def depositTextClicked(self):
+        self.deposit_obj = Deposit()
         self.deposit_obj.showDialog()
     
     def withdrawTextBlicked(self):
+        self.withdraw_obj = Withdraw()
         self.withdraw_obj.showDialog()
     
     def showDialog(self):
         return super().exec_()
-
